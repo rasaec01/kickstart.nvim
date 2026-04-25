@@ -2,9 +2,9 @@
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 --
-require("lua.custom.config.options")
-require("lua.custom.config.keymaps")
-require("lua.custom.config.lazy")
+require("custom.config.options")
+require("custom.config.keymaps")
+require("custom.config.lazy")
 
 vim.diagnostic.config({
 	update_in_insert = false,
@@ -37,4 +37,3 @@ local ui = {
 		lazy = "💤 ",
 	},
 }
-
