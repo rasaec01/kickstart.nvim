@@ -12,5 +12,8 @@ return {
 		vim.g.moonflyTerminalColors = true
 
 		vim.cmd([[ colorscheme moonfly ]])
+
+		vim.api.nvim_set_hl(0, "htmlTagName", { link = "MoonflyEmerald" })
+		vim.api.nvim_set_hl(0, "tsxIntrinsicTagName", { link = "MoonflyEmerald" })
 	end,
 }

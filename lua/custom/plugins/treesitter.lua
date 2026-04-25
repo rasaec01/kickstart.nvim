@@ -6,6 +6,7 @@ return {
 	lazy = false,
 
 	config = function()
+		vim.treesitter.language.register("tsx", "typescriptreact") -- ← add this first
 		require("nvim-treesitter").setup({
 			ensure_installed = {
 				"bash",
@@ -13,7 +14,6 @@ return {
 				"lua",
 				"markdown",
 				"tsx",
-				"jsx",
 				"javascript",
 				"typescript",
 				"python",
@@ -23,7 +23,6 @@ return {
 
 			highlight = { enable = true },
 			indent = { enable = true },
-
 			autotag = { enable = true },
 		})
 	end,
