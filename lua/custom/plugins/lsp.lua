@@ -1,11 +1,7 @@
 -- LSP Plugins
 return {
-	-- Main LSP Configuration
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		-- Automatically install LSPs and related tools to stdpath for Neovim
-		-- Mason must be loaded before its dependents so we need to set it up here.
-		-- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
 		{
 			"mason-org/mason.nvim",
 			---@module 'mason.settings'
@@ -16,8 +12,6 @@ return {
 		-- Maps LSP server names between nvim-lspconfig and Mason package names.
 		"mason-org/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
-
-		-- Useful status updates for LSP.
 		{ "j-hui/fidget.nvim", opts = {} },
 	},
 	config = function()
@@ -123,7 +117,7 @@ return {
 		local servers = {
 			-- clangd = {},
 			-- gopls = {},
-			-- pyright = {},
+			pyright = {},
 			-- rust_analyzer = {},
 			--
 			-- Some languages (like typescript) have entire language plugins that can be useful:
@@ -131,7 +125,6 @@ return {
 			--
 			-- But for many setups, the LSP (`ts_ls`) will work just fine
 			-- ts_ls = {},
-
 			stylua = {}, -- Used to format Lua code
 
 			-- Special Lua Config, as recommended by neovim help docs
