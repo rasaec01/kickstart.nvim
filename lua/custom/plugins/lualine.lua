@@ -3,20 +3,19 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons", opts = {} },
 	opts = {
 		options = {
-			icons_enabled = true,
-			theme = "auto",
+			icons_enabled = false,
 			component_separators = { left = "", right = "" },
 			section_separators = { left = "", right = "" },
 			disabled_filetypes = {
-				statusline = {},
+				statusLine = {},
 				winbar = {},
 			},
 			ignore_focus = {},
 			always_divide_middle = true,
-			globalstatus = true,
+			gs = true,
 			refresh = {
 				statusline = 1000,
-				tabline = 1000,
+				tabline = 5000,
 				winbar = 1000,
 			},
 		},
