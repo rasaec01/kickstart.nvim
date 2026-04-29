@@ -44,12 +44,26 @@ return {
 		--    That is to say, every time a new file is opened that is associated with
 		--    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
 		--    function will be executed to configure the current buffer
+		--
+		vim.api.nvim_create_autocmd("VimEnter", {
+			callback = function()
+				-- Support both Windows and Unix venv paths
+				local venv_win = vim.fn.getcwd() .. "/.venv/Scripts/python.exe"
+				local venv_unix = vim.fn.getcwd() .. "/.venv/bin/python"
+
+				if vim.fn.filereadable(venv_win) == 1 then
+					vim.g.python3_host_prog = venv_win
+				elseif vim.fn.filereadable(venv_unix) == 1 then
+					vim.g.python3_host_prog = venv_unix
+				end
+			end,
+		})
+		--
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 			callback = function(event)
 				-- NOTE: Remember that Lua is a real programming language, and as such it is possible
 				-- to define small helper and utility functions so you don't have to repeat yourself.
-				--
 				-- In this case, we create a function that lets us more easily define mappings specific
 				-- for LSP related items. It sets the mode, buffer and description for us each time.
 				local map = function(keys, func, desc, mode)
@@ -117,7 +131,32 @@ return {
 		local servers = {
 			-- clangd = {},
 			-- gopls = {},
-			pyright = {},
+
+			pyright = {
+				before_init = function(_, config)
+					-- Explicitly set pythonPath so pyright uses the venv interpreter
+					local venv_win = vim.fn.getcwd() .. "/.venv/Scripts/python.exe"
+					local venv_unix = vim.fn.getcwd() .. "/.venv/bin/python"
+
+					if vim.fn.filereadable(venv_win) == 1 then
+						config.settings.python.pythonPath = venv_win
+					elseif vim.fn.filereadable(venv_unix) == 1 then
+						config.settings.python.pythonPath = venv_unix
+					end
+				end,
+				settings = {
+					python = {
+						venvPath = vim.fn.getcwd(),
+						venv = ".venv",
+						analysis = {
+							exclude = { ".venv" },
+							autoSearchPaths = true,
+							useLibraryCodeForTypes = true,
+							typeCheckingMode = "basic",
+						},
+					},
+				},
+			},
 			-- rust_analyzer = {},
 			--
 			-- Some languages (like typescript) have entire language plugins that can be useful:

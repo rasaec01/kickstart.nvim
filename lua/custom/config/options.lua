@@ -38,6 +38,11 @@ vim.o.smartcase = true
 -- Keep signcolumn on by default
 vim.o.signcolumn = "yes"
 
+vim.opt.colorcolumn = "120"
+vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#1c1c1c" })
+vim.opt.wrap = true -- wraps lines that exceed the window width
+vim.opt.linebreak = true -- wraps at word boundaries, not mid-word
+
 -- Decrease update time
 vim.o.updatetime = 250
 

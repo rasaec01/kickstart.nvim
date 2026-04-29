@@ -7,13 +7,11 @@ local oil = {
 		})
 
 		vim.keymap.set("n", "<leader>e", function()
-			if vim.bo.filetype == "oil" then
-				oil.close()
-			else
-				oil.open()
-			end
-			open = not open
-		end, { desc = "Toggle Oil" })
+			oil.open()
+		end, { desc = "Open Oil" })
+		vim.keymap.set("n", "<leader>E", function()
+			oil.close()
+		end, { desc = "Close Oil" })
 	end,
 }
 return oil

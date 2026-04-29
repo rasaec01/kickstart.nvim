@@ -19,9 +19,7 @@ require("lazy").setup({
 		-- NOTE: Plugins can be added via a link or github org/name. To run setup automatically, use `opts = {}`
 		{ import = "custom.plugins" },
 		{ "NMAC427/guess-indent.nvim", opts = {} },
-
 		require("kickstart.plugins.autopairs"),
-
 		-- require 'kickstart.plugins.debug',
 		-- require 'kickstart.plugins.indent_line',
 		-- require 'kickstart.plugins.lint',
