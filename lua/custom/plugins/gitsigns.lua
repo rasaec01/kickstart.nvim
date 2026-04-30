@@ -25,6 +25,7 @@ return { -- Adds git related signs to the gutter, as well as utilities for manag
 			-----------------
 			-- REVIEW AS YOU CODE
 			map("n", "<leader>hi", gitsigns.preview_hunk_inline, { desc = "git preview hunk [i]nline" })
+			map("n", "<leader>hp", gitsigns.preview_hunk, { desc = "git [p]review hunk" })
 
 			-- USBA
 			map("n", "<leader>hR", gitsigns.reset_buffer, { desc = "git [R]eset buffer" })

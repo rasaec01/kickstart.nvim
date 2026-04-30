@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.g.no_python_maps = 1
 vim.o.shell = "powershell.exe"
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
