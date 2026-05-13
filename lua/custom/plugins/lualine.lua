@@ -6,13 +6,13 @@ return {
 			icons_enabled = false,
 			component_separators = { left = "", right = "" },
 			section_separators = { left = "", right = "" },
+			globalstatus = true,
 			disabled_filetypes = {
 				statusLine = {},
 				winbar = {},
 			},
 			ignore_focus = {},
 			always_divide_middle = true,
-			gs = true,
 			refresh = {
 				statusline = 1000,
 				tabline = 5000,

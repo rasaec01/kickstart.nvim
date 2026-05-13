@@ -3,6 +3,10 @@ vim.g.maplocalleader = " "
 
 vim.g.no_python_maps = 1
 vim.o.shell = "powershell.exe"
+vim.opt.syntax = "off"
+
+vim.opt.title = true
+vim.opt.titlestring = "%t"
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true

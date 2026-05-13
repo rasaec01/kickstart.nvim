@@ -35,6 +35,5 @@ vim.keymap.set("n", "k", "gk", { desc = "Move up visual line" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 --
 
-vim.keymap.set("n", "<leader>.", vim.lsp.buf.code_action, { desc = "Code Action" })
 vim.keymap.set("n", "<leader>j", "<Cmd>cnext<CR>")
 vim.keymap.set("n", "<leader>k", "<Cmd>cprev<CR>")
