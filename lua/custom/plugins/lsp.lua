@@ -8,6 +8,7 @@ return {
 			---@type MasonSettings
 			---@diagnostic disable-next-line: missing-fields
 			opts = {},
+			i,
 		},
 		-- Maps LSP server names between nvim-lspconfig and Mason package names.
 		"mason-org/mason-lspconfig.nvim",
@@ -129,7 +130,7 @@ return {
 		--  See `:help lsp-config` for information about keys and how to configure
 		---@type table<string, vim.lsp.Config>
 		local servers = {
-			-- clangd = {},
+			clangd = {},
 			-- gopls = {},
 
 			pyright = {
